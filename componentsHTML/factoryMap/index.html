@@ -1,0 +1,122 @@
+<html>
+    <head>
+        <title>Asset Avatar</title>
+        <link rel="stylesheet" type="text/css" href="css.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <h1>Production Line</h1>
+        <div id="factoryView">
+            <div class="controls">
+                <ul>
+                    <li class="fullScreen" onclick='controlHandler("fullscreen")'><span class="glyphicon glyphicon glyphicon-fullscreen"></span></li>
+                    <li class="zoomIn" onclick='controlHandler("zoomin")'><span class="glyphicon glyphicon-zoom-in"></span></li>
+                    <li class="zoomOut" onclick='controlHandler("zoomout")'><span class="glyphicon glyphicon-zoom-out"></span></li>
+                    <li class="rightMove"  onclick='controlHandler("right")'><span class="glyphicon glyphicon glyphicon-chevron-right"></span></li>
+                    <li class="leftMove"  onclick='controlHandler("left")'><span class="glyphicon glyphicon glyphicon-chevron-left"></span></li>
+                    <li class="topMove"  onclick='controlHandler("top")'><span class="glyphicon glyphicon-chevron-up"></span></li>
+                    <li class="bottomMove"  onclick='controlHandler("bottom")'><span class="glyphicon glyphicon-chevron-down"></span></li>
+                </ul>
+            </div>
+            <div class="imageInfoContainer">
+                <div class="innerImage">
+                    <img src="factoryMap.png" class="factoryMapImage"/>
+                    <div class="roundMarker prodline1" data-prodlineid="prodline1">
+                        <div class="arrow bottom"></div>
+                        <span>&nbsp;</span>
+                    </div>
+                    <div class="roundMarker prodline2" data-prodlineid="prodline2">
+                        <div class="arrow bottom"></div>
+                        <span>&nbsp;</span>
+                    </div>
+                    <div class="roundMarker prodline3" data-prodlineid="prodline3">
+                        <div class="arrow bottom"></div>
+                        <span>&nbsp;</span>
+                    </div>
+                    <div class="roundMarker prodline1" data-prodlineid="prodline1">
+                        <div class="arrow bottom"></div>
+                        <span>&nbsp;</span>
+                    </div>
+                    <div class="roundMarker prodline2" data-prodlineid="prodline2">
+                        <div class="arrow bottom"></div>
+                        <span>&nbsp;</span>
+                    </div>
+                    <div class="roundMarker prodline3" data-prodlineid="prodline3">
+                        <div class="arrow bottom"></div>
+                        <span>&nbsp;</span>
+                    </div>
+                </div>
+                <div class="infoCard">
+                    <h2>Production Line 1</h2>
+                    <h3>OEE</h3>
+                    <h4>56%</h4>
+                    <div class="percArea">
+                        <div class="percBar"><div class="perc"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+
+        function controlHandler(type){
+            switch(type) {
+                case "fullscreen":
+                    console.log("fullscreen");
+                    break;
+                case "zoomin":
+                    console.log("zoomin");
+                    break;
+                case "zoomout":
+                    console.log("zoomout");
+                    break;
+                case "right":
+                    console.log("right");
+                    break;
+                case "left":
+                    console.log("left");
+                    break;
+                case "top":
+                    console.log("top");
+                    break;
+                case "bottom":
+                    console.log("bottom");
+                    break;
+            }
+        }
+        var data = {
+                "prodline1":["Production Line 1","critical","90","critical","2"], 
+                "prodline2":["Production Line 2","warning","85","warning","5"],
+                "prodline3":["Production Line 3","normal","65","normal","0"]
+            },
+            controls = $(".controls ul li"),
+            markers = $(".roundMarker span");
+            markers.parent().each(function(i, asset){
+                var _data = data[$(asset).attr("data-prodlineid")];
+                $(asset).addClass(_data[3]).find("span").html(_data[4]);
+            });
+            markers.mouseover(function(e){
+                e.stopPropagation();
+                var curObject = $(e.target).parent(),
+                    _data = data[curObject.attr("data-prodlineid")],
+                    top = $(e.target).parent().position().top,
+                    left = $(e.target).parent().position().left,
+                    infoCard = $(".infoCard");
+                    infoCard.find("h2").html(_data[0]); // Asset Name
+                    infoCard.find("h4").html(_data[2]+"%"); // OEE Val
+                    infoCard.find(".percArea .percBar").removeClass("critical warning normal");
+                    infoCard.find(".percArea .percBar").addClass(_data[1]); // Perc bar
+                    infoCard.find(".percBar .perc").width(_data[2]+"%"); // Asset Availability
+                    infoCard.show().css({ 'top': (top+ 30)+'px','left':(left - 110)+'px' });
+                    
+            }).mouseout(function(e){
+                $(".infoCard").hide();
+            });
+            controls.on("click",function(e){
+
+            });
+    </script>
+</html>

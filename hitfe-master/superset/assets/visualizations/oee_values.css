@@ -1,0 +1,143 @@
+#productionLineOEE{
+    position: relative;
+    display: block;
+    height: 95%;
+    font-family: 'Open Sans', sans-serif;
+    margin: 10px 10px 0px 10px;
+}
+#productionLineOEE .prodLineList{
+    overflow-y: scroll;
+    height: 100%;
+}
+#productionLineOEE .prodLineCard{
+    padding-right: 15px;
+    box-sizing: border-box;
+    height: 105px;
+    width: 50%;
+    float: left;
+    cursor: pointer;
+}
+#productionLineOEE .prodLineList .prodLineCard:nth-child(even){
+    padding-right: 0px;
+}
+#productionLineOEE .prodLineCard .content{
+    height: 90px;
+    box-sizing: border-box;
+    padding: 15px 20px;
+    border:1px solid rgba(155, 155, 155, 0.12);
+    border-radius: 8px;
+    background-color: #fafafa;
+    transition: linear 0.3s all;
+}
+
+#productionLineOEE .prodLineCard .content h2{
+    font-size: 16px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.6px;
+    text-align: left;
+    color: #4a4a4a;
+    text-transform: uppercase;
+    margin: 0px;
+    padding: 0px;
+  }
+  #productionLineOEE .prodLineCard .content .bottomBlock{
+      margin: 0px;
+      padding: 5px 0 0 0;
+  }
+  #productionLineOEE .prodLineCard .content .bottomBlock .leftSection{
+      float: left;
+  }
+  #productionLineOEE .prodLineCard .content .bottomBlock .leftSection .colorDot{
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-top: 12px;
+  }
+  #productionLineOEE .prodLineCard .content .bottomBlock .leftSection .colorDot.warning{
+    background-color: #f9dc33;
+  }
+  #productionLineOEE .prodLineCard .content .bottomBlock .leftSection .colorDot.critical{
+    background-color: #cc0000;
+  }
+  #productionLineOEE .prodLineCard .content .bottomBlock .leftSection .colorDot.normal{
+    background-color: #388d3c;
+  }
+  #productionLineOEE .prodLineCard .content .bottomBlock .leftSection .oeeVal{
+    font-size: 24px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+    display: inline-block;
+    padding-left: 10px;
+}
+#productionLineOEE .prodLineCard .content .bottomBlock .rightSection{
+    float: right;
+}
+
+#productionLineOEE .prodLineCard .content .bottomBlock .rightSection{
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: right;
+  color: #cc0000;
+  margin-top:10px;
+  
+}
+#productionLineOEE .prodLineCard:hover .content{
+    background-color:#eaeaea;
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+    /* For landscape layouts only */
+    #productionLineOEE .prodLineCard .content h2{
+        font-size: 14px;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.6px;
+        text-align: left;
+        color: #4a4a4a;
+        text-transform: uppercase;
+        margin: 0px;
+        padding: 0px;
+      }
+
+      #productionLineOEE .prodLineCard .content .bottomBlock{
+        margin: 0px;
+        padding: 5px 0 0 0;
+    }
+  }
+
+  @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+    /* For portrait layouts only */
+    #productionLineOEE .prodLineCard .content h2{
+        font-size: 14px;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.6px;
+        text-align: left;
+        color: #4a4a4a;
+        text-transform: uppercase;
+        margin: 0px;
+        padding: 0px;
+      }
+
+      #productionLineOEE .prodLineCard .content .bottomBlock{
+        margin: 0px;
+        padding: 5px 0 0 0;
+    }
+  }

@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <title>Asset Avatar</title>
+        <link rel="stylesheet" type="text/css" href="css.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Production Line</h1>
+        <div id="productionLine">
+            <div class="innerImage">
+                <img src="productionLine.jpg" class="prodLineImage"/>                    
+                <div class="asset compressor"  assetid="compressor2">
+                    <div class="assetHover"></div>
+                    <svg class="assetSelect" xmlns="http://www.w3.org/2000/svg" width="70" height="86" viewBox="0 0 86 102">
+                        <path fill-rule="evenodd" d="M85.09 33.703v-23.39L52.625.35l-21.38 7.332-1.031 28.845-4.162 1.43-1.056-1.43-5.652 1.43v2.34l-6.532-3.77-2.84 1.43v2.34l2.84 2.062-2.84 2.187-9.816 4.542v4.642c2.138 5.442 2.673 11.254 1.604 17.438C.689 77.352.155 85.697.155 96.202l6.533-1.47 14.55 6.821 2.328-3.488.948-.572.48-38.96 2.096-3.52 6.041-1.283 5.554 1.283h.623v-2.567h2.537l11.79 1.882 23.892-8.112v-9.689l7.564-2.824z"/>
+                    </svg>
+                </div>
+                <div class="asset conveyor" assetid="tank2">
+                    <div class="assetHover"></div>
+                    <svg class="assetSelect" xmlns="http://www.w3.org/2000/svg" width="79" height="51" style="cursor:pointer" viewBox="0 0 96 59">
+                        <path fill-rule="evenodd" d="M3.349 20.527l15.356-5.66C41.5 7.472 53.22 3.773 53.862 3.773c.965 0 1.454-3.066 3.248-3.066 1.793 0 20.93 5.763 22.563 6.747 1.089.656 2.721.328 4.898-.984l11.122 4.017v7.56L54.997 32.008l-1.135 23.769-7.324 2.386h-2.103v-1.036l.606-1.35-6.704-2.772-2.112 1.525-2.373-.543V52.27l1.763-3.95-8.015 2.152h-4.33V48.32L7.909 43.164H6.254l-1.512-.86-2.122-2.172H.912l.48-2.005v-15.91l1.957-1.69z"/>
+                    </svg>
+                </div>
+                <div class="asset tank" assetid="motor2">
+                    <div class="assetHover"></div>
+                    <svg class="assetSelect" xmlns="http://www.w3.org/2000/svg" width="53" height="67" viewBox="0 0 66 67">
+                        <path fill-rule="evenodd" d="M40.87 28.384V4.764L29.608.258 14.946 5.6v27.413c-2.105 1.397-3.546 3.302-4.321 5.717-.776 2.415-1.164 6.445-1.164 12.088L5.053 52.42l-2.21-.373-2.09 1.212v4.01l26.513 9.405h4.01v-2.856l27.445-9.383 6.457-1.591v-5.84h-3.35l-17.305-5.718V31.43l-3.653-3.045z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="info">
+                <div class="unselected">
+                    <h1>Please Select An Asset!</h1>
+                </div>
+                <div class="selected">
+                    <h2>Asset Name: <span>Motor 29</span></h2>
+                    <!--<div class="arrow top"></div>-->
+                    <div class="leftsection">
+                        <h3>OEE</h3>
+                        <div class="oeeVal"><span class="number">57</span><span class="decimal">.37%</span></div>
+                        <div class="percBar"><div class="perc"></div></div>
+                    </div>
+                    <div class="rightsection">
+                        <div class="critRow availability">
+                            <div class="leftBar">
+                                <div class="critTitle">Availability</div>
+                                <div class="percArea">
+                                    <div class="percBar"><div class="perc"></div></div>
+                                </div>
+                            </div>
+                            <div class="value">85%</div>
+                        </div>
+                        <div class="critRow quality">
+                            <div class="leftBar">
+                                <div class="critTitle">Quality</div>
+                                <div class="percArea">
+                                    <div class="percBar"><div class="perc"></div></div>
+                                </div>
+                            </div>
+                            <div class="value">85%</div>
+                        </div>
+                        <div class="critRow performance">
+                            <div class="leftBar">
+                                <div class="critTitle">Performance</div>
+                                <div class="percArea">
+                                    <div class="percBar"><div class="perc"></div></div>
+                                </div>
+                            </div>
+                            <div class="value">85%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        var data = {
+                "compressor2":["Compressor 2","critical","45.34","critical","20","critical","85","warning","95","normal"], 
+                "tank2":["Tank 2","warning","75.2","warning","90.2","normal","73","warning","75","warning"],
+                "motor2":["Motor 2","normal","45","normal","95","normal","45","critical","65","warning"]
+            },
+            assets = $(".asset");
+            assets.each(function(i, asset){
+                var _data = data[$(asset).attr("assetid")];
+                $(asset).find(".assetSelect").addClass(_data[1]);
+            });
+            assets.hover(function(e){
+                e.stopPropagation();
+                var curObject = $(e.target).parent(),
+                    _data = data[curObject.attr("assetid")],
+                    infoCard = $(".info");
+                    infoCard.show();
+                    
+                    infoCard.find(".selected h2 span").html(_data[0]); // Asset Name
+                    var _dec = (_data[2] + "").split(".");
+                    infoCard.find(".selected .oeeVal .number").html(_dec[0]); // Asset OEE
+                    infoCard.find(".selected .leftsection .percBar .perc").width(_dec[0]+"%"); // Asset OEE Graph
+                    infoCard.find(".selected .oeeVal .decimal").html("."+_dec[1]+"%"); // Asset OEE
+                    if(!_dec[1]){
+                        infoCard.find(".selected .oeeVal .decimal").html("%"); // Asset OEE
+                    }
+                    infoCard.find(".selected .leftsection .percBar, .selected .rightsection .percBar").removeClass("critical warning normal");
+                    infoCard.find(".selected .leftsection .percBar").addClass(_data[3]); // Criticality of OEE
+                    infoCard.find(".selected .rightsection .availability .percBar .perc").width(_data[4]+"%"); // Asset Availability
+                    infoCard.find(".selected .rightsection .availability .value").html(_data[4]+"%"); // Asset Availability
+                    infoCard.find(".selected .rightsection .availability .percBar").addClass(_data[5]); // Criticality of Availability
+
+                    infoCard.find(".selected .rightsection .performance .percBar .perc").width(_data[6]+"%"); // Asset Availability
+                    infoCard.find(".selected .rightsection .performance .value").html(_data[6]+"%"); // Asset Availability
+                    infoCard.find(".selected .rightsection .performance .percBar").addClass(_data[7]); // Criticality of Availability
+
+                    infoCard.find(".selected .rightsection .quality .percBar .perc").width(_data[8]+"%"); // Asset Availability
+                    infoCard.find(".selected .rightsection .quality .value").html(_data[8]+"%"); // Asset Availability
+                    infoCard.find(".selected .rightsection .quality .percBar").addClass(_data[9]); // Criticality of Availability
+                    
+            }).mouseout(function(e){
+                $(".info").hide();
+            });
+    </script>
+</html>

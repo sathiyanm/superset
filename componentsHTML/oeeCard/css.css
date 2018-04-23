@@ -1,0 +1,146 @@
+body{
+    background-color: #FFF;
+}
+#oeeCard{
+    position: relative;
+    display: block;
+    height: 80%;
+    font-family: 'Open Sans', sans-serif;
+}
+#oeeCard .panelCard{
+    float: left;
+    width: 25%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+#oeeCard .panelCard.horizontalCard h3{
+    font-size: 16px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.6px;
+    text-align: left;
+    color: #4a4a4a;
+    text-transform: uppercase;
+    margin: 0px;
+    padding: 0px;
+}
+#oeeCard .panelCard.horizontalCard h2{
+  font-size: 26px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  margin: 0px;
+  padding: 10px 0px 0px;
+}
+#oeeCard .panelCard.horizontalCard .percBar, #oeeCard .panelCard.horizontalCard .percBar .perc{
+    height: 10px;
+    border-radius: 10px;
+    background-color: #ececec;
+    width: 100%;
+    transition: linear 0.3s all;
+    margin: 10px 0px;
+}
+#oeeCard .panelCard.horizontalCard .percBar.critical .perc{
+    background-color: #C00;
+    box-shadow: 3px 3px 3px rgba(204, 0, 0, 0.5);
+}
+#oeeCard .panelCard.horizontalCard .percBar.warning .perc{
+    background-color: #f9dc33;
+    box-shadow: 3px 3px 3px rgba(249,220,51, 0.5);
+}
+#oeeCard .panelCard.horizontalCard .percBar.normal .perc{
+    background-color: #388d3c;
+    box-shadow: 3px 3px 3px rgba(56,141,60, 0.5);
+}
+#oeeCard .panelCard .valueInfo .valueContent{
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #414141;
+  float: left;
+}
+#oeeCard .panelCard .valueInfo.centerAlign{
+    text-align: center;
+    width: 135px;
+    margin: 0 auto;
+}
+#oeeCard .panelCard .valueInfo .valueContent span{
+    font-size: 16px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: #4a4a4a;
+}
+#oeeCard .panelCard .arrow{
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    display: inline-block;
+    float: left;
+    margin-top: 6px;
+    margin-right: 10px;
+}
+#oeeCard .panelCard .arrow.top{
+    border-bottom: 10px solid #388d3c;
+}
+#oeeCard .panelCard .arrow.bottom{
+    border-top: 10px solid #c00;
+}
+#oeeCard .panelCard .doughnutGraph{
+    width: 120px;
+    margin: -20px auto 0 auto
+}
+#oeeCard .oeeMainVal{
+    position: absolute;
+    width: 115px;
+    text-align: center;
+}
+#oeeCard .oeeMainVal h2{
+    font-size: 16px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.6px;
+    text-align: center;
+    color: #4a4a4a;
+    margin: 30px 0 0 0;
+}
+#oeeCard .oeeMainVal h3{
+    margin: 0px;
+    padding: 0px;
+}
+#oeeCard .oeeMainVal h3 span.percValue{
+    font-size: 26px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000000;
+}
+#oeeCard .oeeMainVal h3 span.remValue{
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000000;
+}

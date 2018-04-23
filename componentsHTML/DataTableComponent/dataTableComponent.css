@@ -1,0 +1,293 @@
+#tableGridPanel{
+    position: relative;
+}
+#overLay{
+    position: absolute;
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+a.alertId{
+    cursor: pointer;
+    color: #0f8b8d;
+}
+.generalOverlayShow{
+    display: block !important;
+}
+.generalOverlayHide{
+    display: none;
+}
+#tableGridPanel .panel-heading span{
+    font-weight: 600;
+    font-size: 16px;
+}
+#tableGridPanel .table {
+    margin-bottom: 0px !important;
+}
+#tableGridPanel .table td,#tableGridPanel .table th,#tableGridPanel .table>tbody>tr>td {
+    border-top: 0px;
+}
+#tableGridPanel .tableTools {
+    color: #cc0000;
+    margin: 15px 10px;
+    cursor: pointer;
+}
+#tableGridPanel .panel-default>.panel-heading {
+    background: #ffffff;
+    border-color: #ffffff;
+}
+#tableGridPanel .react-bs-table .react-bs-container-footer>table>thead>tr>th, #tableGridPanel .react-bs-table .react-bs-container-header>table>thead>tr>th {
+    color: #868686;
+    font-size: 12px;
+}
+#tableGridPanel .react-bs-table table td, .react-bs-table table th {
+    padding: 10px 20px !important;
+}
+#tableGridPanel .react-bs-table table td:focus {
+    outline: none;
+}
+#tableGridPanel .table>tbody>tr>td {
+    font-size: 13px;
+}
+#tableGridPanel .react-bs-table table tr > td:first-child{
+    color: #000;
+}
+.fab.fa-sistrix.pull-right.tableTools, .fab.fa-search.pull-right.tableTools{
+    display: none;
+}
+#tableGridPanel div.alertsTable div.react-bs-table table tr > td:nth-child(2),#tableGridPanel div.alertsTable div.react-bs-table table tr > td:nth-child(5){
+    font-weight: 600;
+}
+#tableGridPanel .react-bs-table-container .react-bs-table-search-form{
+    position: relative;
+    z-index: 1000;
+}
+#tableGridPanel .react-bs-table-container .react-bs-table-search-form > input.form-control{
+    border-color: #cc0000;
+}
+#tableGridPanel .page-item.active .page-link{
+    background-color: #cc0000;
+    border-color: #cc0000;
+}
+#tableGridPanel .react-bs-table-container .react-bs-table-search-form > input.form-control:focus{
+    text-decoration: none;
+    box-shadow: none;
+}
+#tableGridPanel .react-bs-table-pagination {
+    padding: 5px 20px;
+}
+#tableGridPanel .react-bs-table-tool-bar {
+    position: absolute;
+    float: right;
+    right: 65px;
+    width: 380px;
+    z-index: 100;
+    margin-right: 20px;
+    top: 8px;
+    z-index: 15000;
+}
+#tableGridPanel .react-bs-container-body{
+    max-height: 80%;
+    overflow-x: hidden;
+}
+
+#tableGridPanel .react-bs-container-body::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#tableGridPanel .react-bs-container-body::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+#tableGridPanel .react-bs-container-body::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #868686;
+}
+
+
+#tableGridPanel .statusMarker{
+    font-size: 8px;
+    margin: 0px 10px 0px -20px;
+}
+#tableGridPanel .filterOverlay {
+    height: auto;
+    width: 160px;
+    position: absolute;
+    top: 42px;
+    right: 36px;
+    z-index: 2000;
+    overflow-x: hidden;
+    border-radius: 5px;
+    padding: 1rem;
+    display: block;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.12);
+    border: solid 1px #cc0000;
+    background: #ffffff;
+}
+#tableGridPanel .calendarOverlay {
+    height: auto;
+    position: absolute;
+    top: 42px;
+    right: 5px;
+    z-index: 1000;
+    overflow-x: hidden;
+    border-radius: 5px;
+    padding: 1rem;
+    display: block;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.12);
+    border: solid 1px #cc0000;
+    background: #ffffff;
+}
+
+#tableGridPanel .filterOverlayHide, .calendarOverlayHide {
+    width: 0;
+    display: none !important;
+}
+#tableGridPanel .filterOverlayShow {
+    width: '20%';
+    display: 'block';
+}
+#tableGridPanel .calendarOverlayShow {
+    width: '30%';
+    display: 'block';
+}
+
+#tableGridPanel .styled-checkbox {
+    position: absolute; 
+    opacity: 0; 
+}
+#tableGridPanel .styled-checkbox + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+}
+  
+/* // Box. */
+#tableGridPanel .styled-checkbox + label:before {
+    content: '';
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 15px;
+    height: 15px;
+    background: white;
+    border: 1px solid #cc0000;
+}
+     
+/* // Disabled state label. */
+#tableGridPanel .styled-checkbox:disabled + label {
+    color: #b8b8b8;
+    cursor: auto;
+}
+  
+/* // Disabled box. */
+#tableGridPanel .styled-checkbox:disabled + label:before {
+    box-shadow: none;
+    background: #ddd;
+    border: 1px solid #cc0000;
+}
+  
+/* // Checkmark. Could be replaced with an image */
+#tableGridPanel .styled-checkbox:checked + label:after {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 8px;
+    background: #cc0000;
+    width: 2px;
+    height: 2px;
+    box-shadow: 
+    2px 0 0 #cc0000,
+    4px 0 0 #cc0000,
+    4px -2px 0 #cc0000,
+    4px -4px 0 #cc0000,
+    4px -6px 0 #cc0000,
+    4px -8px 0 #cc0000;
+    transform: rotate(45deg);
+}
+    
+#tableGridPanel .groupHeader{
+    padding: 0px 0px 5px;
+    text-transform: uppercase;
+}
+
+#tableGridPanel .DateRangePicker__Month {
+    margin: 0px !important;
+}
+#tableGridPanel .DateRangePicker__PaginationArrowIcon--previous {
+    border-right: 8px solid #cc0000;
+}
+#tableGridPanel .DateRangePicker__PaginationArrowIcon--next {
+    border-left: 8px solid #cc0000;
+}
+#tableGridPanel .DateRangePicker__MonthHeader{
+    height: auto !important;
+    line-height: normal !important;
+}
+#tableGridPanel .DateRangePicker__CalendarSelection{
+    background-color: #cc0000;
+    border-color:#cc0000;
+}
+
+#tableGridPanel .filterItemTag{
+    border: 1px solid #868686;
+    border-radius: 24px;
+    padding: 3px 10px;
+    color: #cc0000;
+    margin: 3px;
+    font-size: 12px;
+}
+#tableGridPanel .filterItemTagClose{
+    margin-left: 5px;
+    cursor: pointer;
+}
+#tableGridPanel .clearTag {
+    font-weight: bold;
+    text-decoration: underline;
+    margin: 0px 8px;
+    cursor: pointer;
+}
+
+#tableGridPanel .nav-tabs>li.active>a,#tableGridPanel .nav-tabs>li.active>a:focus, #tableGridPanel .nav-tabs>li.active>a:hover {
+    border: 0px;
+    color: #cc0000;
+    border-bottom: 4px solid #cc0000 !important;
+    background-color: transparent;
+}
+#tableGridPanel .nav-tabs>li>a{
+    color: #868686;
+    font-weight: 600;
+    border: 0px;
+}
+#tableGridPanel .nav-tabs{
+    background: #f4f4f4;
+    clear: both;
+}
+#tableGridPanel .addDescInput{
+    border: 0px;
+}
+#tableGridPanel .filterIcons{
+    position: absolute;
+    right: 15px;
+    top: 2px;
+}
+#tableGridPanel .selectedTags{
+    padding: 10px 0;
+    float: none !important;
+}
+
+#tableGridPanel .tableAndFilterContainer{
+    position: relative;
+}
+#tableGridPanel .tableAndFilterContainer.withoutTabs{
+    position: relative;
+    padding-top: 43px;
+}

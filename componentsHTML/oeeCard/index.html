@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <title>OEE Card</title>
+        <link rel="stylesheet" type="text/css" href="css.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+    </head>
+    <body>
+        <h1>OEE Card</h1>
+        <div id="oeeCard">
+            <div class="panelCard oeeVals">
+                <div class="doughnutGraph">
+                    <div class="oeeMainVal">
+                        <h2>OEE</h2>
+                        <h3><span class="percValue">55</span><span class="remValue">.1%</span></h3>
+                    </div>
+                    <canvas id="myChart" width="115" height="115"></canvas>
+                </div>
+                <div class="valueInfo centerAlign">
+                    <div class="arrow top"></div>
+                    <div class="valueContent"><span>5%</span> in past 7 days</div>
+                </div>
+            </div>
+            <div class="panelCard horizontalCard availability">
+                <h3>Availability</h3>
+                <h2>90%</h2>
+                <div class="percArea">
+                    <div class="percBar"><div class="perc"></div></div>
+                </div>
+                <div class="valueInfo">
+                    <div class="arrow top"></div>
+                    <div class="valueContent"><span>5%</span> in past 7 days</div>
+                </div>
+            </div>
+            <div class="panelCard horizontalCard performance">
+                <h3>Performance</h3>
+                <h2>90%</h2>
+                <div class="percArea">
+                    <div class="percBar"><div class="perc"></div></div>
+                </div>
+                <div class="valueInfo">
+                    <div class="arrow top"></div>
+                    <div class="valueContent"><span>5%</span> in past 7 days</div>
+                </div>
+            </div>
+            <div class="panelCard horizontalCard quality">
+                <h3>Quality</h3>
+                <h2>90%</h2>
+                <div class="percArea">
+                    <div class="percBar"><div class="perc"></div></div>
+                </div>
+                <div class="valueInfo">
+                    <div class="arrow top"></div>
+                    <div class="valueContent"><span>5%</span> in past 7 days</div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        var data = {
+                "oee":[55.3, "critical", -5],
+                "availability":[96, "normal", +5],
+                "performance":[76, "warning", -3],
+                "quality":[65, "critical", +5]
+            };
+            var ctx = document.getElementById("myChart").getContext('2d');
+            var backgroundColors = ['rgb(204, 0, 0)','rgba(0, 0, 0, 0.1)'];
+            
+        function getRemainder(val){
+            var _dec = (val + "").split(".");
+            return _dec;
+        }
+
+            if(data.oee[1] == "critical"){
+                backgroundColors[0] = 'rgb(204, 0, 0)';
+            }else if(data.oee[1] == "warning"){
+                backgroundColors[0] = 'rgb(249,220,51)';
+            }else{
+                backgroundColors[0] = 'rgb(56, 141, 60)';
+            }
+            var doughnutData = {
+                datasets: [{
+                    data: [90, 10],
+                    backgroundColor: backgroundColors
+                }],
+                labels: [
+                    'OEE',
+                    'Remaining'
+                ]
+            };
+            var chartOptions =  {
+                legend: {
+                        display: false,
+                        labels: {
+                            fontColor: 'rgb(255, 99, 132)',
+                            display: false
+                        }
+                    },
+                    tooltips:{
+                        display:false
+                    },
+                    borderWidth:5,
+                    cutoutPercentage:80
+                };
+            var myDoughnutChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: doughnutData,
+                    options: chartOptions
+                });
+    </script>
+</html>

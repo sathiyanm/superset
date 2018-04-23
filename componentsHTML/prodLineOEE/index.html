@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Production Line OEE</title>
+        <link rel="stylesheet" type="text/css" href="css.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Production Line OEE</h1>
+        <div id="productionLineOEE">
+            <div class="prodLineCard">
+                <div class="content">
+                    <h2>Production Line 1</h2>
+                    <div class="bottomBlock">
+                        <div class="leftSection">
+                            <div class="colorDot critical"></div>
+                            <div class="oeeVal">85%</div>
+                        </div>
+                        <div class="rightSection">
+                            3 Alerts
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+       var data = {
+                "prodLine1":["prod Line 1","critical","65","3"], 
+                "prodLine2":["prod Line 2","warning","85","2"], 
+                "prodLine3":["prod Line 3","normal","95","7"], 
+            };
+    </script>
+</html>

@@ -1,0 +1,301 @@
+body{
+    background-color: #FFF;
+}
+#productionLine{
+    position: relative;
+    display: block;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    overflow: hidden;
+}
+#productionLine .isProdShow{
+    display: block !important;
+}
+#productionLine .isProdHide{
+    display: none !important;
+}
+#productionLine .innerImage{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -240px;
+    margin-top: -134px;
+    height: 268px;
+    width: 480px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: scale(1.1);
+}
+#productionLine .innerImage .roundMarker{
+    position: absolute;
+    z-index: 10000;
+    height: 25px;
+    width: 25px;
+    text-align: center;
+    border-radius: 30px;
+    cursor: pointer;
+    color: #FFF;
+    transition: linear 0.3s all;
+    left: 20%;
+    top: -16px;
+}
+#productionLine .innerImage .roundMarker.critical .arrow{
+    border-top: 10px solid #c00;
+}
+#productionLine .innerImage .roundMarker.warning .arrow{
+    border-top: 10px solid #f9dc33;
+}
+#productionLine .innerImage .roundMarker.normal .arrow{
+    border-top: 10px solid #388d3c;
+}
+#productionLine .innerImage .roundMarker:hover{
+    background-color: #FFF !important;
+    color: #000000;
+}
+#productionLine .innerImage .roundMarker.critical{background-color: #C00; border: 1px solid #C00; animation: blinkAnim 0.3s linear infinite alternate;}
+#productionLine .innerImage .roundMarker.warning{background-color: #f9dc33;border: 1px solid #f9dc33;}
+#productionLine .innerImage .roundMarker.normal{background-color: #388d3c; border: 1px solid #388d3c;}
+#productionLine .innerImage .roundMarker span{
+    display: inline-block;
+    height: 17px;
+    width: 17px;
+    margin-top: 3px;
+    background-color: #FFF !important;
+    border-radius: 20px;
+    color: #000000;
+    line-height: 16px;
+}
+#productionLine .innerImage .roundMarker .arrow{
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    position: absolute;
+    bottom: -9px;
+    left: 7px;
+}
+#productionLine .innerImage .prodLineImage{
+    width: 100%;
+}
+#productionLine .asset{
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    cursor: pointer;
+}
+#productionLine .asset .assetHover{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+#productionLine .asset.compressorOne{
+    height: 106px;
+    width: 103px;
+    top: 122px;
+    left: 84px;
+}
+#productionLine .asset.compressorTwo{
+    height: 75px;
+    width: 67px;
+    top: 172px;
+    left: 57px;
+}
+#productionLine .asset.roboarmOne{
+    height: 124px;
+    width: 150px;
+    top: 58px;
+    left: 231px;
+}
+#productionLine .asset.cncThree{
+    height: 88px;
+    width: 81px;
+    top: 11px;
+    left: 177px;
+}
+#productionLine .asset.cncTwo{
+    height: 88px;
+    width: 81px;
+    top: 73px;
+    left: 138px;
+}
+#productionLine .asset.cncOne{
+    height: 88px;
+    width: 81px;
+    top: 141px;
+    left: 213px;
+    z-index: 100;
+}
+#productionLine .asset.conveyorBeltOne{
+    height: 125px;
+    width: 160px;
+    top: 34px;
+    left: 250px;
+}
+#productionLine .asset.conveyorBeltOne .roundMarker{
+    top: 9px;
+}
+#productionLine .asset.conveyorBeltTwo{
+    display: none;
+}
+#productionLine .asset .assetSelect.critical path{
+    fill:#C00;
+    stroke:#C00;
+}
+#productionLine .asset .assetSelect.warning path{
+    fill:#f9dc33;
+    stroke:#f9dc33;
+}
+#productionLine .asset .assetSelect.normal path{
+    fill:#388d3c;
+    stroke:#388d3c;
+}
+#productionLine .asset .assetSelect{
+    fill-opacity:0.55;
+    stroke-width: 0px;
+    transition: linear 0.3s all;
+    fill-rule:evenodd;
+}
+
+#productionLine .asset:hover .assetSelect{
+    fill-opacity:0.55;
+    stroke-width: 5px;
+}
+#productionLine .asset.tank{
+    height: 63px;
+    width: 58px;
+    top: 100px;
+    right: 63px;
+}
+
+#productionLine .temperature{
+    left: 120px;
+    top: 35px;
+}
+
+#productionLine .humidity{
+    left: 175px;
+    top: 145px;
+}
+#productionLine .vibration{
+    top: 145px;
+    right: 25px;
+}
+#productionLine .info{
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    box-sizing: border-box;
+    padding: 20px;
+    height: 150px;
+    display: none;
+    transition: linear 0.3s all;
+}
+#productionLine .info h2{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.85;
+    text-align: left;
+    color: #000000;
+    text-transform: capitalize;
+}
+#productionLine .info h2 span{
+    font-weight: 600;
+}
+#productionLine .info .leftsection{
+   float: left;
+   width: 40%;
+   box-sizing: border-box;
+   padding-right: 20px;
+}
+#productionLine .info .rightsection{
+    float: right;
+    width: 60%;
+    box-sizing: border-box;
+    padding: 0px;
+    padding-top: 20px;
+ }
+ #productionLine .info .leftsection h3 {
+    font-size: 16px;
+    font-weight: 600;
+    font-style: normal;
+    text-align: left;
+    color: #000000;
+    margin-bottom: 0px;
+  }
+#productionLine .info .leftsection .oeeVal{
+    font-size: 28px;
+    font-weight: 600;
+}
+#productionLine .info .leftsection .oeeVal span.decimal{
+    font-size: 16px;
+}
+#productionLine .info .percBar, #productionLine .info .percBar .perc{
+    height: 10px;
+    border-radius: 10px;
+    background-color: #ececec;
+    width: 100%;
+    transition: linear 0.3s all;
+    margin-top: 10px;
+}
+#productionLine .info .percBar.critical .perc{
+    background-color: #C00;
+    box-shadow: 3px 3px 3px rgba(204, 0, 0, 0.5);
+}
+#productionLine .info .percBar.warning .perc{
+    background-color: #f9dc33;
+    box-shadow: 3px 3px 3px rgba(249,220,51, 0.5);
+}
+#productionLine .info .percBar.normal .perc{
+    background-color: #388d3c;
+    box-shadow: 3px 3px 3px rgba(56,141,60, 0.5);
+}
+#productionLine .info .rightsection .critRow{
+    position: relative;
+    padding-bottom: 14px;
+}
+#productionLine .info .rightsection .critRow .leftBar{
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 45px;
+}
+#productionLine .info .rightsection .critRow .critTitle{
+    font-size: 12px;
+    font-weight: 600;
+    color: #4a4a4a;
+    width: 85px;
+    display: inline-block;
+    float: left;
+}
+#productionLine .info .rightsection .critRow .value{
+    position: absolute;
+    right: 0;
+    font-size: 12px;
+    text-align: right;
+    top: 0;
+}
+#productionLine .info .rightsection .critRow .percArea{
+    padding-left: 85px;
+    width: 100%;
+    box-sizing: border-box;
+}
+#productionLine .info .rightsection .critRow .percBar{
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0px;
+    height: 10px;
+    margin-top: -14px;
+}
+#productionLine .info .rightsection .critRow .percBar .perc{
+    margin-top: 0px;
+}
+.unselected{
+    display: none;
+}

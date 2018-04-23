@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <title>Asset Avatar</title>
+        <link rel="stylesheet" type="text/css" href="css.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    </head>
+    <body>
+        <div id="alertDetail">
+            <h1>Alert Details</h1>
+            <div class="sections">
+                <div class="leftSection">
+                    <ul>
+                        <li><p class="title">Alert ID:</p><p class="content">HIT</p></li>
+                        <li><p class="title">Alert Description:</p><p class="content">Air Compressor Failure</p></li>
+                        <li><p class="title">Parameter:</p><p class="content">Quality</p></li>
+                    </ul>
+                </div>
+                <div class="rightSection">
+                        <ul>
+                            <li><p class="title">Location:</p><p class="content">Production Line 2 > Asset 4</p></li>
+                            <li><p class="title">Date:</p><p class="content">12 February 2018</p></li>
+                            <li><p class="title">Time:</p><p class="content">15:35</p></li>
+                        </ul>
+                </div>
+            </div>
+            <div class="dataChart">
+                <h3>Asset 1 Health</h3>
+                <canvas id="graphCanvas" width="660" height="200"></canvas>
+            </div>
+            <div class="buttonBar">
+                <div class="assignalert button button-highpriority"><span>Assign Alert</span>
+                    <div class="nameSelection">
+                        <h2>Assign To:</h2>
+                        <ul>
+                            <li data-refName="Me">Me</li>
+                            <li data-refName="Line Operator">Line Operator</li>
+                            <li data-refName="Factory Operator">Factory Operator</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="deprioritize button button-lowpriority">Deprioritize</div>
+            </div>
+        </div>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        var data = {
+                "alertInfo":["HIT","Air compressor Failure","Quality","Production Line", "Asset 4", "Wed Oct 18 2017 12:41:34 GMT+0000 (UTC)"], 
+                "dateStamp":["Wed Oct 18 2017 12:41:34 GMT+0000 (UTC)","Wed Oct 18 2017 12:51:34 GMT+0000 (UTC)","Wed Oct 18 2017 01:01:34 GMT+0000 (UTC)","Wed Oct 18 2017 01:05:34 GMT+0000 (UTC)","Wed Oct 18 2017 01:21:34 GMT+0000 (UTC)"],
+                "sensorInfo":{"name":"Humidity","sensorValues":[
+                    {"name":"Humidity","data":[63.27, 54.12,32.1,12.3,55.77], "valueType":"%"},
+                    {"name":"Temperature","data":[25.8,23.2,14.2,33.2,20.1], "valueType":"F"},
+                    {"name":"Dew Point","data":[16.3,11.2,19.2,20.2,11.1], "valueType":"Temp"}
+                ]}
+            };
+        var ctx = document.getElementById("graphCanvas").getContext('2d');
+        var colorArray = ['rgba(80, 227, 194, 0.6)','rgba(15, 139, 141, 0.6)','rgba(65, 117, 5, 0.6)'];
+        var graphData = {"datasets":[],"labels":[],"yAxis":[]};
+            
+        function getSensorData(){
+            var _dataSet = data.sensorInfo.sensorValues;
+            var labels = [];
+            var yAxes = [];
+            
+            for(var i = 0; i<_dataSet.length; i++){
+                var tempData = {
+                        label: "",
+                        data: [],
+                        backgroundColor: colorArray[0],
+                        borderWidth: 0,
+                        yAxisID: ""
+                    };
+                    tempData.label = _dataSet[i].name + " " +_dataSet[i].valueType;
+                    tempData.data = _dataSet[i].data;
+                    tempData.backgroundColor = colorArray[i];
+                    tempData.yAxisID = _dataSet[i].name.replace(" ","-");
+                    graphData.yAxis.push({"id":_dataSet[i].name.replace(" ","-")});
+                    graphData.datasets.push(tempData);
+                }
+
+                for(var j=0; j<data.dateStamp.length; j++){
+                    var _newDate = new Date(data.dateStamp[j]);
+                    graphData.labels.push((_newDate.getMonth() + 1) + '/' + _newDate.getDate() + " " +_newDate.getHours()+':'+_newDate.getMinutes());
+                }
+
+                console.log(graphData);
+            }
+            getSensorData();    
+                /* Dynamic Vars */
+            var planetData = {
+                labels: graphData.labels,
+                datasets: graphData.datasets
+            };
+            /* Dynamic Vars */
+
+            var chartOptions = {
+                scales: {
+                    xAxes: [{
+                        barPercentage: 1,
+                        categoryPercentage: 0.6
+                    }],
+                    yAxes: graphData.yAxis
+                }
+            };
+
+            var barChart = new Chart(ctx, {
+                type: 'line',
+                data: planetData,
+                options: chartOptions
+            });
+
+            $(".assignalert.button.button-highpriority").hover(function(){
+                $("#alertDetail .buttonBar .nameSelection").fadeToggle();
+            });
+            $("#alertDetail .buttonBar .nameSelection li").click(function(e){
+                var _curObj = $(e.target);
+                var _val = _curObj.attr("data-refName");
+                $(".assignalert.button.button-highpriority span").html(_val);
+            });
+
+    </script>
+</html>

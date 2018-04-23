@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Asset Avatar</title>
+        <link rel="stylesheet" type="text/css" href="css.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Asset Twin</h1>
+        <div id="assetAvatar">
+            <div class="innerImage" style="background-image:url(image.png)">
+                    <div class="sensor temperature" type="temperature" valueType="F"></div>
+                    <div class="sensor humidity" type="humidity" valueType="%"></div>
+                    <div class="sensor vibration" type="vibration" valueType=""></div>
+                    <div class="info">
+                        <div class="arrow top"></div>
+                        <h3>Temperature Details</h3>
+                        <div class="infoRow threshold">
+                            <span class="leftTitle">Threshold Temperature</span>
+                            <span class="rightData">250 F</span>
+                        </div>
+                        <div class="infoRow current">
+                                <span class="leftTitle">Current Temperature</span>
+                                <span class="rightData">120 F</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        var data = {"temperature":["250","120","critical"], "humidity":["20","12","warning"],"vibration":["140","120","normal"]},
+            sensors = $(".sensor");
+            sensors.each(function(i, sensor){
+                var sensorType = $(sensor).attr("type");
+                $(sensor).addClass(data[sensorType][2]);
+            });
+        sensors.hover(function(e){
+            var curObject = $(e.target),
+                top = $(e.target).position().top,
+                left = $(e.target).position().left,
+                infoCard = $(".info"),
+                sensorType = curObject.attr("type"),
+                thresholdTitle = "Threshold "+sensorType,
+                currentTitle = "Current "+sensorType,
+                currentData = data[sensorType][1]+ " " +curObject.attr("valueType"),
+                thresholdData = data[sensorType][0]+ " " +curObject.attr("valueType"),
+                infoCardTitle = curObject.attr("type") + " Details";
+                infoCard.find(".threshold .leftTitle").html(thresholdTitle);
+                infoCard.find(".current .leftTitle").html(currentTitle);
+                infoCard.find(".threshold .rightData").html(thresholdData);
+                infoCard.find(".current .rightData").html(currentData);
+                infoCard.find("h3").html(infoCardTitle);
+                infoCard.show().css({ 'top': (top+ 50)+'px','left':(left - 110)+'px' });
+        }).mouseout(function(e){
+            $(".info").hide();
+        });
+    </script>
+</html>

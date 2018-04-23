@@ -1,0 +1,233 @@
+#factoryView{
+    position: relative;
+    display: block;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+#factoryView .imageInfoContainer{
+    position: relative;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    /*transform: translateX(50px) scale(1.8) translateY(60px);*/
+}
+#factoryView .innerImage{
+    /*transform: translateX(50px) scale(1.8) translateY(60px);*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -360px;
+    margin-top: -245px;
+    height: 450px;
+    width: 720px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#factoryView .innerImage .factoryMapImage{
+    width: 100%;
+}
+#factoryView .innerImage .roundMarker{
+    position: absolute;
+    z-index: 10000;
+    height: 25px;
+    width: 25px;
+    text-align: center;
+    border-radius: 30px;
+    cursor: pointer;
+    color: #FFF;
+    transition: linear 0.3s all;
+}
+#factoryView .innerImage .roundMarker span{
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    margin-top: 3px;
+    background-color: #FFF !important;
+    border-radius: 20px;
+}
+#factoryView .innerImage .roundMarker .arrow{
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    position: absolute;
+    bottom: -9px;
+    left: 7px;
+}
+#factoryView .innerImage .roundMarker.critical .arrow{
+    border-top: 10px solid #c00;
+}
+#factoryView .innerImage .roundMarker.warning .arrow{
+    border-top: 10px solid #f9dc33;
+}
+#factoryView .innerImage .roundMarker.normal .arrow{
+    border-top: 10px solid #388d3c;
+}
+#factoryView .innerImage .roundMarker:hover{
+    background-color: #FFF !important;
+    color: #000000;
+}
+#factoryView .innerImage .roundMarker.critical{background-color: #C00; border: 1px solid #C00; animation: blinkAnim 0.3s linear infinite alternate;}
+#factoryView .innerImage .roundMarker.warning{background-color: #f9dc33;border: 1px solid #f9dc33;}
+#factoryView .innerImage .roundMarker.normal{background-color: #388d3c; border: 1px solid #388d3c;}
+
+.prodline1{
+    top: 238px;
+    left: 218px;
+}
+.prodline2{
+    top: 83px;
+    left: 390px;
+}
+.prodline3{
+    top: 172px;
+    left: 234px;
+}
+.prodline4{
+    top: 300px;
+    left: 375px;
+}
+.prodline5{
+    top: 176px;
+    left: 351px;
+}
+.prodline6{
+    top: 174px;
+    left: 519px;
+}
+
+#factoryView .infoCard{
+    width: 240px;
+    height: auto;
+    border-radius: 4px;
+    background-color: #fefefe;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.12);
+    position: absolute;
+    padding: 20px;
+    box-sizing: border-box;
+    display: none;
+    z-index: 10000;
+}
+#factoryView .infoCard h2{
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: #000000;
+    margin: 5px 0px 0px 0px;
+}
+#factoryView .infoCard h3{ 
+    font-size: 16px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.6px;
+    text-align: left;
+    color: #4a4a4a;
+    margin: 15px 0px 0px 0px;
+}
+#factoryView .infoCard h4{
+    font-size: 28px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+    margin: 0px;
+}
+#factoryView .infoCard .percBar, #factoryView .infoCard .percBar .perc{
+    height: 10px;
+    border-radius: 10px;
+    background-color: #ececec;
+    width: 100%;
+    transition: linear 0.3s all;
+    margin-top: 10px;
+}
+#factoryView .infoCard .percBar.critical .perc{
+    background-color: #C00;
+    box-shadow: 3px 3px 3px rgba(204, 0, 0, 0.5);
+}
+#factoryView .infoCard .percBar.warning .perc{
+    background-color: #f9dc33;
+    box-shadow: 3px 3px 3px rgba(249,220,51, 0.5);
+}
+#factoryView .infoCard .percBar.normal .perc{
+    background-color: #388d3c;
+    box-shadow: 3px 3px 3px rgba(56,141,60, 0.5);
+}
+
+#factoryView .controls{
+    position: absolute;
+    z-index: 11000;
+    right: 0px;
+    top: 160px;
+    width: 25px;
+    margin: 15px;
+    height: 100px;
+    display: none;
+}
+#factoryView .controls ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    height: 100px;
+    box-sizing: border-box;
+}
+#factoryView .controls ul li{
+    height: 25px;
+    width: 25px;
+    display: block;
+    border-radius: 30px;
+    border: 1px solid #C00;
+    margin: 0px 0px 10px 0px;
+    cursor: pointer;
+    background-color: #FFF;
+    transition: linear 0.3s all;
+}
+#factoryView .controls ul li span{
+    text-align: center;
+    display: inline-block;
+    height: 25px;
+    width: 23px;
+    color: #C00;
+    padding-top: 3px;
+    transition: linear 0.3s all;
+}
+#factoryView .controls ul li:hover{
+    background-color: #C00
+}
+#factoryView .controls ul li:hover span{
+    color: #FFF;
+}
+@keyframes blinkAnim {
+    from   {    transform:scale(1);}
+    TO   {    transform:scale(1.3);}
+}
+
+.slice-grid div.widget, .slice-cell{
+    overflow: hidden !important;
+}
+.slice-grid div.widget{
+    border-radius: 4px !important;
+    box-shadow: 0 4px 16px 0 rgba(155, 155, 155, 0.12) !important;
+}
+div.widget .chart-header{
+    border-bottom: 0px !important;
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+    padding: 8px 0;
+}

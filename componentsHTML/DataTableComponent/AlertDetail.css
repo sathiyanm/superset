@@ -1,0 +1,178 @@
+#alertDetail{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+#alertDetail.isDetailHide, #alertDetail .isMenuHide{
+    display: none;
+}
+#alertDetail.isDetailShow, #alertDetail .isMenuShow{
+    display: block !important;
+}
+#alertDetail .overLay{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+#alertDetail .popupContainer{
+    position: absolute;
+    width: 720px;
+    height: 500px;
+    background: #FFF;
+    border-radius: 4px;
+    font-family: 'Open Sans', sans-serif;
+    left: 50%;
+    top: 50%;
+    margin-left: -360px;
+    margin-top: -250px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    padding: 25px;
+}
+#alertDetail h1{
+    font-size: 28px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+    margin: 0;
+    padding: 0 0 20px 0;
+}
+#alertDetail .sections{
+    border-bottom: 1px solid #dedede;
+    height: 105px;
+}
+#alertDetail .sections .leftSection{
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+}
+#alertDetail .sections .rightSection{
+    float: right;
+    width: 50%;
+    box-sizing: border-box;
+}
+#alertDetail .sections ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#alertDetail .sections ul li p.title{
+    float: left;
+    width: 120px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000000;
+}
+#alertDetail .sections ul li p.content{
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+}
+#alertDetail .dataChart{
+    height: 240px;
+}
+#alertDetail .buttonBar{
+    position: relative;
+}
+#alertDetail .buttonBar .button{
+    width: 120px;
+    height: 32px;
+    border-radius: 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: linear all 0.3s;
+    float: right;
+    margin-left: 15px;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    color: #4a4a4a;
+    background-color: #e9ebee;
+    border: 1px solid #e9ebee;
+}
+#alertDetail .buttonBar .button:hover{
+    border: 1px solid #4a4a4a;
+    background-color: #FFF;
+}
+#alertDetail .buttonBar .button-highpriority{
+    background-color: #cc0000;
+    border: 1px solid #cc0000;
+    color: #FFF;
+}
+#alertDetail .buttonBar .button-highpriority:hover{
+    background-color: #FFF;
+    border: 1px solid #cc0000;
+    color: #CC0000;
+}
+#alertDetail .buttonBar .assignalert .nameSelection h2{
+    font-size: 12px;
+    margin: 0px;
+    padding: 15px 5px;
+    text-align: left;
+    color: #000000;
+    font-weight: normal;
+}
+#alertDetail .buttonBar .assignalert .nameSelectionHide{
+    display: none;
+}
+#alertDetail .buttonBar .assignalert .nameSelectionShow{
+    display: block !important;
+}
+#alertDetail .buttonBar .assignalert .nameSelection{
+    background-color: #FFF;
+    border-radius: 4px;
+    position: absolute;
+    width: 140px;
+    border: 1px solid #EFEFEF;
+    right: 0px;
+    top: 32px;
+    display: none;
+}
+#alertDetail .buttonBar .assignalert .nameSelection ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+#alertDetail .buttonBar .assignalert .nameSelection ul li{
+    padding: 5px 5px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s linear;
+    color: #000000;
+    font-weight: normal;
+}
+#alertDetail .buttonBar .assignalert .nameSelection ul li:hover{
+    background: #CC0000;
+    color: #FFF;
+}
+#alertDetail .dataChart h3{
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+    margin: 10px 0 0 0;
+}
